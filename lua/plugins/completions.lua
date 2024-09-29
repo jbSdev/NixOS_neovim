@@ -12,6 +12,10 @@ return {
     {
         -- Auto code completion
         "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+        },
         config = function()
             local cmp = require("cmp")
             require("luasnip.loaders.from_vscode").lazy_load()
@@ -29,7 +33,9 @@ return {
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"]   = cmp.mapping.complete(),
                     ["<C-e>"]       = cmp.mapping.abort(),
-                    ["<CR>"]        = cmp.mapping.confirm({ select = true }),
+                    ["<C-n>"]       = cmp.mapping.scroll_docs(1),
+                    ["<C-p>"]       = cmp.mapping.scroll_docs(-1),
+                    ["<C-y>"]       = cmp.mapping.confirm({ select = true }),
                 }),
                 experimental = {
                     ghost_text = true
@@ -37,8 +43,8 @@ return {
                 sources = cmp.config.sources ({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
-                }, {
                     { name = "buffer" },
+                    { name = "path" }
                 }),
             })
         end
