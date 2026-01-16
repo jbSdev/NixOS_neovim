@@ -10,9 +10,23 @@ return {
     {
       "<leader>?",
       function()
-        require("which-key").show({ global = false })
+        require("which-key").show({ global = true })
       end,
       desc = "Which Key?",
     },
+    {
+        "zo",
+        function()
+            require('ufo').openAllFolds()
+        end,
+        desc = "Open all folds"
+    },
+    {
+        "zc",
+        function()
+            require('ufo').closeAllFolds()
+        end,
+        desc = "Close all folds"
+    }
   },
 }
