@@ -5,6 +5,7 @@ return {
     {
         "L3MON4D3/LuaSnip",
         dependencies = {
+            tag = "v2.*",
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets"
         },
@@ -44,7 +45,9 @@ return {
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "buffer" },
-                    { name = "path" }
+                    { name = "path" },
+                    { name = "copilot" },
+                    { name = "ale" }
                 }),
             })
         end

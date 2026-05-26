@@ -1,24 +1,19 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set number")
+-- Set editor options
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.number = true
 
+-- Set leader key
 vim.g.mapleader = " "
 
-
-    -- Creating a keymap
-    -- v = visual
-    -- n = number
-    -- f = files
-    --      f = find
-    --      g = grep
-    -- b = buffer
-    --      c = close
+-- Keymaps
 vim.keymap.set('n', '<leader>vn', ':set number!<CR>', {desc = 'Toggle line number'})
 vim.keymap.set('n', '<C-Tab>', ':bnext<CR>', {desc = 'Next buffer'})
 vim.keymap.set('n', '<leader>bc', ':bd<CR>', {desc = 'Close buffer'})
 
+-- Toggleable terminal
 local term_buf = nil
 local term_win = nil
 
