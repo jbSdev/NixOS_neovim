@@ -37,7 +37,7 @@ return {
 
             -- C++ Setup
             vim.lsp.config("clangd", {
-                cmd = { "/run/current-system/sw/bin/clangd" },
+                cmd = { "clangd" },
                 name = "clangd_cpp",
                 capabilities = lsp_capabilities,
                 filetypes = { "cpp", "objcpp", "cuda", "proto", "h" },
