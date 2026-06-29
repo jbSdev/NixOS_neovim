@@ -99,7 +99,7 @@
 
                         # Themes
                         tokyonight-nvim
-                        catpuccin-nvim
+                        catppuccin-nvim
 
                         # AI
                         copilot-lua
