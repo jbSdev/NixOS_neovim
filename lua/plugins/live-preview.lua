@@ -1,17 +1,6 @@
-return {
-    'brianhuster/live-preview.nvim',
-    dependencies = {
-        'nvim-telescope/telescope.nvim',
-    },
+require('live-preview').setup()
 
-    config = function ()
-        require('live-preview').setup()
-    end,
-
-    keys = {
-        { "<leader>lps", "<CMD>LivePreview start<CR>",      desc = "LivePreview start" },
-        { "<leader>lpc", "<CMD>LivePreview close<CR>",      desc = "LivePreview close" },
-        { "<leader>lpp", "<CMD>LivePreview preview<CR>",    desc = "LivePreview preview" },
-        { "<leader>lph", "<CMD>h livepreview<CR>",          desc = "LivePreview documentation" },
-    }
-}
+vim.keymap.set('n', "<leader>lps", "<CMD>LivePreview start<CR>",   { desc = "LivePreview start" })
+vim.keymap.set('n', "<leader>lpc", "<CMD>LivePreview close<CR>",   { desc = "LivePreview close" })
+vim.keymap.set('n', "<leader>lpp", "<CMD>LivePreview preview<CR>", { desc = "LivePreview preview" })
+vim.keymap.set('n', "<leader>lph", "<CMD>h livepreview<CR>",       { desc = "LivePreview documentation" })
