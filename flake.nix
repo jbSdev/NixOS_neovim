@@ -95,7 +95,6 @@
                         mini-nvim
 
                         # Navigation
-                        nvim-navbunny
                         nvim-navic
 
                         # Themes
