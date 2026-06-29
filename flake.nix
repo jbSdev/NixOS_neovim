@@ -115,7 +115,7 @@
                         # Editor
                         nvim-autopairs
                         nvim-ts-autotag
-                        vim-ale
+                        # vim-ale
                         tcomment_vim
                         toggleterm-nvim
                         flutter-tools-nvim
