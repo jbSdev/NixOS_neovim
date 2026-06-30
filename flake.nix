@@ -126,7 +126,7 @@
 
                     ];
 
-                    extraLuaConfig = ''
+                    initLua = ''
                         require("utils.load_env").load_env()
                         vim.cmd[[highligh Folded guibg=default]]
 
