@@ -14,8 +14,8 @@
             options.modules.neovim.enable = lib.mkEnableOption "Neovim editor";
             config = lib.mkIf config.modules.neovim.enable {
 
-                xdg.configFile."nvim/lua".source = "./lua";
-                xdg.configFile."nvim/.luarc.json".source = ./.luarc.json;
+                xdg.configFile."nvim/lua".source = "${self}/lua";
+                xdg.configFile."nvim/.luarc.json".source = "${self}/.luarc.json";
 
                 programs.neovim = {
                     enable = true;
