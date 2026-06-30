@@ -41,7 +41,7 @@
 
                         # Tools
                         ripgrep                             # telescope
-                        fg                                  # telescope
+                        fd                                  # telescope
                     ];
 
                     plugins = with pkgs.vimPlugins; [
