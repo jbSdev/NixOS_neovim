@@ -1,1 +1,1 @@
-require("which-key").show({ global = true })
+require("which-key").setup()
