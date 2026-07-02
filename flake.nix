@@ -29,15 +29,17 @@
                         nil                                 # Nix
                         clang-tools                         # C/C++
                         asm-lsp                             # Assembly
-                        nodejs                              # NodeJS
+                        nodejs                              # NodeJS runtime for ts-ls
                         efm-langserver
                         typescript-language-server          # TS/JS
                         vscode-langservers-extracted        # HTML/CSS/JSON
-                        pyright                             # Python
                         python3Packages.python-lsp-server   # pylsp
                         arduino-language-server             # Arduino
                         gopls                               # Go
                         rust-analyzer                       # Rust
+
+                        # Formatters
+                        stylua                              # Lua formatter (none-ls)
 
                         # Tools
                         ripgrep                             # telescope
@@ -45,7 +47,6 @@
                     ];
 
                     plugins = with pkgs.vimPlugins; [
-                        lazy-nvim
 
                         # Treesitter
                         (nvim-treesitter.withPlugins (p: with p; [
@@ -96,16 +97,10 @@
 
                         # Navigation
                         nvim-navic
+                        nvim-navbuddy
 
                         # Themes
                         tokyonight-nvim
-                        catppuccin-nvim
-
-                        # AI
-                        copilot-lua
-                        copilot-cmp
-                        # codecompanion-nvim
-                        # markview-nvim
 
                         # Folding
                         nvim-ufo
@@ -115,9 +110,8 @@
                         # Editor
                         nvim-autopairs
                         nvim-ts-autotag
-                        # vim-ale
                         tcomment_vim
-                        toggleterm-nvim
+                        live-preview-nvim
                         flutter-tools-nvim
                         dressing-nvim
 
@@ -128,15 +122,15 @@
 
                     initLua = ''
                         require("utils.load_env").load_env()
-                        vim.cmd[[highligh Folded guibg=default]]
+                        vim.cmd[[highlight Folded guibg=default]]
 
-                        vim.api.nvim_create_autocmd({"BufRead", "BufNewLine"}, {
+                        vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
                             pattern = "*.asm",
                             callback = function()
                                 local first_line = vim.api.nvim_buf_get_lines(0, 0, 1, false)[1] or ""
-                                if first_line:math("^;%s*nasm") then
+                                if first_line:match("^;%s*nasm") then
                                     vim.bo.filetype = "nasm"
-                                elseif first_line:math("^;%s*masm") then
+                                elseif first_line:match("^;%s*masm") then
                                     vim.bo.filetype = "masm"
                                 else
                                     vim.bo.filetype = "asm"
@@ -154,6 +148,7 @@
                         })
 
                         require("vim-options")
+                        require("plugins")
                     '';
                 };
 

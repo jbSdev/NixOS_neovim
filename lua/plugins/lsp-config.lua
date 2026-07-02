@@ -125,6 +125,24 @@ vim.lsp.config("rust_analyzer", {
     capabilities = lsp_capabilities,
 })
 
+-- Nix setup
+vim.lsp.config("nil_ls", {
+    cmd = { "nil" },
+    capabilities = lsp_capabilities,
+})
+
+-- Go setup
+vim.lsp.config("gopls", {
+    cmd = { "gopls" },
+    capabilities = lsp_capabilities,
+})
+
+-- TypeScript/JavaScript setup (types & navigation; eslint handles linting)
+vim.lsp.config("ts_ls", {
+    cmd = { "typescript-language-server", "--stdio" },
+    capabilities = lsp_capabilities,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)
         if vim.bo[args.buf].buftype ~= "" then
@@ -144,5 +162,8 @@ vim.lsp.enable({
     "cssls",
     "jsonls",
     "eslint",
+    "ts_ls",
     "pylsp",
+    "nil_ls",
+    "gopls",
 })
