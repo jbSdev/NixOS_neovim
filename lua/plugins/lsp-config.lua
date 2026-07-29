@@ -174,4 +174,4 @@ vim.lsp.enable({
 });
 
 -- Make arduino files use cpp highlighting
-vim.filetype.add({ extension = { ino = "cpp" } });
+-- vim.filetype.add({ extension = { ino = "cpp" } });
