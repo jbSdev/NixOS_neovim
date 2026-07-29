@@ -109,7 +109,12 @@ vim.lsp.config("jsonls", {
 
 -- Arduino Setup
 vim.lsp.config("arduino_language_server", {
-    cmd = { "arduino-language-server" },
+    cmd = { "arduino-language-server",
+            "-cli-config",  vim.fn.expand("~/.arduino15/arduino-cli.yaml"),
+            "-cli",         "arduino-cli",
+            "-clangd",      "clangd",
+            "-fqbn",        "esp32:esp32:esp32",
+    },
     capabilities = vs_lsp_capabilities,
 })
 
@@ -166,4 +171,7 @@ vim.lsp.enable({
     "pylsp",
     "nil_ls",
     "gopls",
-})
+});
+
+-- Make arduino files use cpp highlighting
+vim.filetype.add({ extension = { ino = "cpp" } });
