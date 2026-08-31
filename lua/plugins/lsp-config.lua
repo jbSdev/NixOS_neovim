@@ -29,13 +29,13 @@ return {
             vim.keymap.set('n', '<leader>vi', vim.lsp.buf.hover, {desc = "Show documentation"})
             vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action, {desc = "Lsp code action"})
 
-            -- Lua Setup
+            -- 1. Lua Setup
             vim.lsp.config("lua_ls", {
                 cmd = { "/run/current-system/sw/bin/lua-language-server" },
                 capabilities = lsp_capabilities,
             })
 
-            -- C++ Setup
+            -- 2. C++ Setup
             vim.lsp.config("clangd", {
                 cmd = { "clangd" },
                 name = "clangd_cpp",
@@ -57,7 +57,7 @@ return {
             --]]
 
 
-            -- Assembly Setup
+            -- 3. Assembly Setup
             vim.lsp.config("asm_lsp", {
                 cmd = { "/run/current-system/sw/bin/asm-lsp" },
                 capabilities = lsp_capabilities,
@@ -67,7 +67,7 @@ return {
                 end,
             })
 
-            -- JavaScript Setup
+            -- 4. JavaScript Setup
             vim.lsp.config("eslint", {
                 -- cmd = { "/run/current-system/sw/bin/vscode-eslint-language-server", "--stdio" },
                 cmd = { "/home/jb/.config/nvim/lua/plugins/npm_lsp/node_modules/vscode-langservers-extracted/bin/vscode-eslint-language-server", "--stdio" },
@@ -82,14 +82,14 @@ return {
                 root_dir = function() return vim.loop.cwd() end,
             })
 
-            -- CSS Setup
+            -- 5. CSS Setup
             vim.lsp.config("cssls", {
                 -- cmd = { "/run/current-system/sw/bin/vscode-css-language-server", "--stdio" },
                 cmd = { "/home/jb/.config/nvim/lua/plugins/npm_lsp/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server", "--stdio" },
                 capabilities = vs_lsp_capabilities,
             })
 
-            -- HTML Setup
+            -- 6. HTML Setup
             --[[
             vim.lsp.config("html", {
                 cmd = { "/run/current-system/sw/bin/vscode-html-language-server", "--stdio" },
@@ -122,32 +122,32 @@ return {
                 }
             })
 
-            -- JSON Setup
+            -- 7. JSON Setup
             vim.lsp.config("jsonls", {
                 -- cmd = { "/run/current-system/sw/bin/vscode-json-language-server", "--stdio" },
                 cmd = { "/home/jb/.config/nvim/lua/plugins/npm_lsp/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio" },
                 capabilities = vs_lsp_capabilities,
             })
 
-            -- Arduino Setup
+            -- 8. Arduino Setup
             vim.lsp.config("arduino_language_server", {
                 cmd = { "/run/current-system/sw/bin/arduino-language-server" },
                 capabilities = vs_lsp_capabilities,
             })
 
-            -- Python Setup
+            -- 9. Python Setup
             vim.lsp.config("pylsp", {
                 cmd = {"/run/current-system/sw/bin/pylsp"},
                 capabilities = lsp_capabilities,
             })
 
-            -- Rust setup
+            -- 10. Rust setup
             vim.lsp.config("rust_analyzer", {
                 cmd = {"/run/current-system/sw/bin/rust-analyzer"},
                 capabilities = lsp_capabilities,
             })
 
-            -- Java Setup
+            -- 11. Java Setup
             vim.lsp.config("java_language_server", {
                 cmd = ("/run/current-system/sw/bin/java_language_server"),
                 capabilities = lsp_capabilities;
@@ -173,6 +173,7 @@ return {
                 "jsonls",
                 "eslint",
                 "pylsp",
+                "java_language_server",
             })
         end
     }
