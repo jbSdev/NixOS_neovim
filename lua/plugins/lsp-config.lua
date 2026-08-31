@@ -147,6 +147,12 @@ return {
                 capabilities = lsp_capabilities,
             })
 
+            -- Java Setup
+            vim.lsp.config("java_language_server", {
+                cmd = ("/run/current-system/sw/bin/java_language_server"),
+                capabilities = lsp_capabilities;
+            })
+
             vim.api.nvim_create_autocmd("FileType", {
                 callback = function(args)
                     if vim.bo[args.buf].buftype ~= "" then
