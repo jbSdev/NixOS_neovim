@@ -152,6 +152,11 @@ vim.lsp.config("ts_ls", {
 vim.lsp.config("java_language_server", {
     cmd = { "java-language-server" },
     capabilities = lsp_capabilities,
+    root_dir = function(bufnr, on_dir)
+        local markers = { "build.gradle", "build.gradle.kts", "pom.xml", ".git" }
+        local root = vim.fs.root(bufnr, markers) or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
+        on_dir(root)
+    end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
